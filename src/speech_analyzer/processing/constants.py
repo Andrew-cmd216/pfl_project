@@ -1,0 +1,18 @@
+
+# Audio file validation
+MAX_FILE_SIZE = 25 * 1024 * 1024  # 25 MB
+
+MIN_SAMPLE_RATE = 16_000
+MAX_SAMPLE_RATE = 48_000
+
+MIN_DURATION = 0.5
+MAX_DURATION = 120.0
+
+SUPPORTED_SUBTYPES = {
+    "PCM_16",
+    "PCM_24",
+    "PCM_32",
+}
+
+# Audio preprocessing
+TARGET_SAMPLE_RATE = 22_050

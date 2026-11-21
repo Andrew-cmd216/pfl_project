@@ -1,20 +1,11 @@
 
-from dataclasses import dataclass
 from math import gcd
 
 import numpy as np
 from scipy.signal import resample_poly
 
-from speech_analyzer.processing.audio_loader import AudioData
-
-
-TARGET_SAMPLE_RATE = 22_050
-
-
-@dataclass
-class ProcessedAudio:
-    samples: np.ndarray
-    sample_rate: int
+from speech_analyzer.processing.constants import TARGET_SAMPLE_RATE
+from speech_analyzer.processing.models import AudioData, ProcessedAudio
 
 
 def convert_to_mono(samples: np.ndarray) -> np.ndarray:

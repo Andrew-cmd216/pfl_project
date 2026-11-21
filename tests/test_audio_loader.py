@@ -9,7 +9,6 @@ from speech_analyzer.processing.audio_loader import load_audio
 
 def create_test_wav() -> bytes:
     sample_rate = 16_000
-    duration = 1.0
 
     samples = np.zeros(sample_rate, dtype=np.float32)
 
@@ -44,4 +43,4 @@ def test_empty_file():
     except ValueError as error:
         assert "empty" in str(error).lower()
     else:
-        assert False, "Expected ValueError"
+        raise AssertionError("Expected ValueError")

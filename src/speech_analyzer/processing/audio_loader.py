@@ -1,33 +1,18 @@
 
-from dataclasses import dataclass
 from io import BytesIO
 
 import numpy as np
 import soundfile as sf
 
-
-MAX_FILE_SIZE = 25 * 1024 * 1024  # 25 MB
-
-MIN_SAMPLE_RATE = 16_000
-MAX_SAMPLE_RATE = 48_000
-
-MIN_DURATION = 0.5
-MAX_DURATION = 120.0
-
-SUPPORTED_SUBTYPES = {
-    "PCM_16",
-    "PCM_24",
-    "PCM_32",
-}
-
-
-@dataclass
-class AudioData:
-    samples: np.ndarray
-    sample_rate: int
-    channels: int
-    duration: float
-    subtype: str
+from speech_analyzer.processing.constants import (
+    MAX_DURATION,
+    MAX_FILE_SIZE,
+    MAX_SAMPLE_RATE,
+    MIN_DURATION,
+    MIN_SAMPLE_RATE,
+    SUPPORTED_SUBTYPES,
+)
+from speech_analyzer.processing.models import AudioData
 
 
 def load_audio(file_bytes: bytes) -> AudioData:
