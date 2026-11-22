@@ -1,4 +1,3 @@
-
 from io import BytesIO
 
 import numpy as np
@@ -41,16 +40,12 @@ def load_audio(file_bytes: bytes) -> AudioData:
             raise ValueError("Only mono and stereo audio are supported.")
 
         if not MIN_SAMPLE_RATE <= audio_info.samplerate <= MAX_SAMPLE_RATE:
-            raise ValueError(
-                "Sample rate must be between 16 kHz and 48 kHz."
-            )
+            raise ValueError("Sample rate must be between 16 kHz and 48 kHz.")
 
         duration = audio_info.duration
 
         if not MIN_DURATION <= duration <= MAX_DURATION:
-            raise ValueError(
-                "Audio duration must be between 0.5 and 120 seconds."
-            )
+            raise ValueError("Audio duration must be between 0.5 and 120 seconds.")
 
         samples, sample_rate = sf.read(
             BytesIO(file_bytes),

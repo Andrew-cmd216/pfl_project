@@ -1,18 +1,18 @@
 .PHONY: install run test lint format
 
 install:
-	uv sync
+	uv sync --locked --no-editable
 
 run:
-	uv run uvicorn speech_analyzer.main:app --reload --port 8000
+	uv run --no-sync uvicorn speech_analyzer.main:app --reload --port 8000
 
 test:
-	uv run pytest
+	uv run --no-sync pytest
 
 lint:
-	uv run ruff check src tests
-	uv run ruff format --check src tests
+	uv run --no-sync ruff check src tests
+	uv run --no-sync ruff format --check src tests
 
 format:
-	uv run ruff format src tests
-	uv run ruff check --fix src tests
+	uv run --no-sync ruff format src tests
+	uv run --no-sync ruff check --fix src tests
