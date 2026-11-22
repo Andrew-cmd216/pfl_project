@@ -1,4 +1,3 @@
-
 import numpy as np
 
 from speech_analyzer.processing.audio_loader import AudioData
